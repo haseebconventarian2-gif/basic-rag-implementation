@@ -15,6 +15,14 @@ Basic banking RAG implementation with FAISS retrieval, Python chat interfaces, a
 
 Basic banking RAG implementation with FAISS retrieval, Python chat interfaces, and WhatsApp integration.
 
+## 📖 The Story
+
+A useful banking chatbot should not invent product details. This project began as a focused experiment in grounding: load approved PDF or JSON content, divide it into searchable passages, and give the language model only the passages most relevant to the customer question.
+
+That simple idea became a bilingual RAG workflow. Azure embeddings create the vector representation, FAISS retrieves context, and the prompt guides the assistant to answer in English or Urdu while staying inside the knowledge base. Text, audio, UI, and WhatsApp-oriented modules show how the same core retrieval logic can support different experiences.
+
+This repository intentionally exposes the moving parts of RAG for learning. The next step is to clean up the package layout, add retrieval-quality tests, and introduce citations and confidence thresholds before treating it as a deployable banking service.
+
 ## Highlights
 
 - PDF and JSON ingestion
@@ -87,4 +95,5 @@ This is a learning and reference implementation. Review security, validation, mo
 - Define retention and privacy controls for audio and customer data.
 
 > This README reflects the current codebase. External AI, telephony, and messaging features require their respective accounts, assets, and approvals.
+
 
