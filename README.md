@@ -24,7 +24,7 @@ Basic banking RAG implementation with FAISS retrieval, Python chat interfaces, a
 
 ## Tech Stack
 
-Python · FastAPI · LangChain · FAISS · Azure OpenAI
+Python Â· FastAPI Â· LangChain Â· FAISS Â· Azure OpenAI
 
 ## Getting Started
 
@@ -53,65 +53,38 @@ uvicorn routes:app --host 0.0.0.0 --port 8000
 
 This is a learning and reference implementation. Review security, validation, monitoring, and deployment settings before production use.
 
-<!-- code-audit-details -->
+## Detailed Code Reference
 
-## 🔄 Runtime Flow
+**Runtime flow:** `Text/audio -> STT -> retrieval -> LLM -> TTS/text -> channel reply`
 
-`Text/audio → STT → retrieval → Azure chat → TTS/text → messaging channel`
+### Repository map
 
-This flow is derived from the current entry points and service calls.
+- `bank.json` - project file
+- `bankislami_voice_config.json` - project file
+- `important.txt` - project file
+- `rag_pipeline.py` - project file
+- `README.md` - project file
+- `requirements.txt` - project file
+- `routes.py` - project file
+- `ui.py` - project file
+- `vector_database.py` - project file
+- `whatsapp.py` - project file
 
-## 🗂 Code Map
-
-| Path | Responsibility |
-| --- | --- |
-| `bank.json` | Supporting resource |
-| `bankislami_voice_config.json` | Supporting resource |
-| `important.txt` | Supporting resource |
-| `rag_pipeline.py` | Retrieval and generation pipeline |
-| `requirements.txt` | Python dependencies |
-| `routes.py` | HTTP routes and orchestration |
-| `ui.py` | Supporting resource |
-| `vector_database.py` | Document indexing and vector storage |
-| `whatsapp.py` | WhatsApp integration |
-
-## 🔐 Environment Variables
-
-No environment-variable reads were detected.
-
-## 🌐 Detected API Routes
-
-| Method | Endpoint |
-| --- | --- |
-| `GET` | `/` |
-| `GET` | `/health` |
-| `GET` | `/media/{media_id}` |
-| `GET` | `/tts` |
-| `GET` | `/webhook` |
-| `GET` | `/whatsapp/diagnose` |
-| `POST` | `/audio` |
-| `POST` | `/text` |
-| `POST` | `/webhook` |
-| `POST` | `/whatsapp/push` |
-
-## 🧪 Validation Guide
+### Validation checklist
 
 1. Install dependencies in a clean virtual environment.
-2. Start the documented entry point and test the root or health route.
-3. Exercise one valid and one invalid request.
-4. Verify external-service errors are handled clearly.
-5. Confirm secrets, private data, indexes, and model artifacts are ignored.
+2. Configure only the environment variables needed by enabled integrations.
+3. Start the documented entry point and test its health or root route.
+4. Exercise successful and invalid requests.
+5. Confirm secrets, private datasets, indexes, and model artifacts are ignored.
 
-## 🔒 Production Checklist
+### Production checklist
 
-- Use managed secret storage and rotate exposed credentials.
+- Use managed secret storage.
 - Add authentication, authorization, rate limiting, and request-size limits.
-- Add automated tests, structured logging, monitoring, and health checks.
+- Add automated tests, structured logs, monitoring, and health checks.
 - Pin and audit dependencies.
 - Define retention and privacy controls for audio and customer data.
 
-## ⚠️ Code-Audit Notes
+> This README reflects the current codebase. External AI, telephony, and messaging features require their respective accounts, assets, and approvals.
 
-- Documentation reflects the current repository code and may expose integrations that need separate cloud accounts, model assets, or channel approval.
-- Treat the project as a reference implementation until its security and deployment configuration are hardened.
-- `routes.py` currently uses package-relative imports; adjust the package layout or imports before starting the API.
