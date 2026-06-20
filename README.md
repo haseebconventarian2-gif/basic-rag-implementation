@@ -4,14 +4,16 @@
 
 Basic banking RAG implementation with FAISS retrieval, Python chat interfaces, and WhatsApp integration.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Reference%20Implementation-6366F1)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white&style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Reference%20Implementation-6366F1?style=for-the-badge)
+
+[Story](#-the-story) · [Features](#-features) · [Setup](#-getting-started) · [Configuration](#-configuration)
 
 </div>
 
 ---
 
-## Overview
+## 🎯 Overview
 
 Basic banking RAG implementation with FAISS retrieval, Python chat interfaces, and WhatsApp integration.
 
@@ -23,18 +25,24 @@ That simple idea became a bilingual RAG workflow. Azure embeddings create the ve
 
 This repository intentionally exposes the moving parts of RAG for learning. The next step is to clean up the package layout, add retrieval-quality tests, and introduce citations and confidence thresholds before treating it as a deployable banking service.
 
-## Highlights
+## ✨ Features
 
 - PDF and JSON ingestion
 - Semantic FAISS retrieval
 - English and Urdu responses
 - Web and messaging interfaces
 
-## Tech Stack
+## 🧰 Tech Stack
 
-Python Â· FastAPI Â· LangChain Â· FAISS Â· Azure OpenAI
+| Technology | Purpose |
+| --- | --- |
+| **Python** | Primary programming language |
+| **FastAPI** | API and web server |
+| **LangChain** | RAG orchestration and text processing |
+| **FAISS** | Vector similarity search |
+| **Azure OpenAI** | Chat, transcription, and speech services |
 
-## Getting Started
+## 🚀 Getting Started
 
 ```bash
 git clone https://github.com/haseebconventarian2-gif/basic-rag-implementation.git
@@ -45,27 +53,27 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Configuration
+## ⚙️ Configuration
 
 Configure Azure OpenAI chat and embedding deployments in `.env`.
 
 > Store credentials in `.env` and never commit secrets.
 
-## Run
+## ▶️ Run
 
 ```bash
 uvicorn routes:app --host 0.0.0.0 --port 8000
 ```
 
-## Project Status
+## 📌 Project Status
 
 This is a learning and reference implementation. Review security, validation, monitoring, and deployment settings before production use.
 
-## Detailed Code Reference
+## 🧩 Detailed Code Reference
 
 **Runtime flow:** `Text/audio -> STT -> retrieval -> LLM -> TTS/text -> channel reply`
 
-### Repository map
+### 📁 Repository Map
 
 - `bank.json` - project file
 - `bankislami_voice_config.json` - project file
@@ -78,7 +86,7 @@ This is a learning and reference implementation. Review security, validation, mo
 - `vector_database.py` - project file
 - `whatsapp.py` - project file
 
-### Validation checklist
+## 🧪 Validation Checklist
 
 1. Install dependencies in a clean virtual environment.
 2. Configure only the environment variables needed by enabled integrations.
@@ -86,7 +94,7 @@ This is a learning and reference implementation. Review security, validation, mo
 4. Exercise successful and invalid requests.
 5. Confirm secrets, private datasets, indexes, and model artifacts are ignored.
 
-### Production checklist
+## 🔒 Production Checklist
 
 - Use managed secret storage.
 - Add authentication, authorization, rate limiting, and request-size limits.
@@ -97,3 +105,24 @@ This is a learning and reference implementation. Review security, validation, mo
 > This README reflects the current codebase. External AI, telephony, and messaging features require their respective accounts, assets, and approvals.
 
 
+
+
+## 🛠 Troubleshooting
+
+<details>
+<summary><strong>The application does not start</strong></summary>
+
+Confirm the virtual environment is active, install `requirements.txt`, and check that every required environment variable is defined.
+</details>
+
+<details>
+<summary><strong>An AI or messaging service cannot be reached</strong></summary>
+
+Verify the endpoint, credentials, deployment names, network access, and external service status. Restart the application after changing `.env`.
+</details>
+
+<details>
+<summary><strong>A model, index, or artifact is missing</strong></summary>
+
+Run the repository's documented build or training step and confirm that generated files are stored at the paths expected by the code.
+</details>
